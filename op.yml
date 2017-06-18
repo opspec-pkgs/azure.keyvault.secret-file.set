@@ -1,0 +1,74 @@
+name: github.com/opspec-pkgs/azure.keyvault.secret-file.set
+description: sets a secret file in azure keyvault (if it's not already set)
+inputs:
+  subscriptionId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of azure subscription
+  loginId:
+    string:
+      constraints: { minLength: 1 }
+      description: id of user, service principal, or app to login with
+  loginSecret:
+    string:
+      constraints: { minLength: 1 }
+      description: secret of user, service principal, or app to login with
+      isSecret: true
+  name:
+    string:
+      constraints: { minLength: 1 }
+      description: name of the secret
+  vault:
+    string:
+      constraints: { minLength: 1 }
+      description: name of the key vault
+  value:
+    file:
+      description: secret file value
+  expires:
+    string:
+      constraints: { minLength: 1 }
+      description: expiration UTC datetime (Y-m-d'T'H:M:S'Z')
+      default: '2018-06-13'
+  description:
+    string:
+      constraints: { minLength: 1 }
+      description: description of the secret contents
+      default: keyvault secret
+  disabled:
+    string:
+      constraints: { enum: ['true', 'false'] }
+      description: create secret in disabled state
+      default: 'false'
+  encoding:
+    string:
+      constraints: { enum: [ascii, base64, hex, utf-16be, utf-16le, utf-8] }
+      description: encoding of the secret file
+      default: utf-8
+  loginTenantId:
+    string:
+      constraints: { minLength: 1 }
+      description: tenant id of user, service principal, or app to login with
+      default: ' '
+  loginType:
+    string:
+      constraints: { enum: [user, sp]}
+      description: type of login; 'user' (default) or 'sp' for service principal
+      default: user
+run:
+  container:
+    image: { ref: 'azuresdk/azure-cli-python:0.2.10' }
+    cmd: [ /cmd.sh ]
+    files: { /cmd.sh, /value: value }
+    envVars:
+      subscriptionId:
+      loginId:
+      loginSecret:
+      name:
+      vault:
+      description:
+      disabled:
+      encoding:
+      expires:
+      loginTenantId:
+      loginType:
