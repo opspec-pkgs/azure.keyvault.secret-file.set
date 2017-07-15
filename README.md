@@ -1,7 +1,7 @@
-# problem statement
+# Problem statement
 sets a secret file in azure keyvault (if it's not already set)
 
-# example usage
+# Example usage
 
 > note: in examples, VERSION represents a version of the azure.keyvault.secret-file.set pkg
 
@@ -39,3 +39,8 @@ run:
       loginType:
       # end optional args
 ```
+
+# Support
+
+join us on [![Slack](https://opspec-slackin.herokuapp.com/badge.svg)](https://opspec-slackin.herokuapp.com/)
+or [open an issue](https://github.com/opspec-pkgs/azure.keyvault.secret-file.set/issues)
