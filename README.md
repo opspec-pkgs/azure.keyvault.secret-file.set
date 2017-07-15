@@ -20,24 +20,23 @@ opctl run github.com/opspec-pkgs/azure.keyvault.secret-file.set#VERSION
 ## compose
 
 ```yaml
-run:
-  op:
-    pkg: { ref: github.com/opspec-pkgs/azure.keyvault.secret-file.set#VERSION }
-    inputs:
-      subscriptionId:
-      loginId:
-      loginSecret:
-      name:
-      value:
-      vault:
-      # end optional args
-      description:
-      disabled:
-      encoding:
-      expires:
-      loginTenantId:
-      loginType:
-      # end optional args
+op:
+  pkg: { ref: github.com/opspec-pkgs/azure.keyvault.secret-file.set#VERSION }
+  inputs:
+    subscriptionId:
+    loginId:
+    loginSecret:
+    name:
+    value:
+    vault:
+    # end optional args
+    description:
+    disabled:
+    encoding:
+    expires:
+    loginTenantId:
+    loginType:
+    # end optional args
 ```
 
 # Support
